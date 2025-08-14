@@ -46,14 +46,16 @@ const getAllProducts = async (req, res) => {
             }
         }
         const skip = (parseInt(page) - 1) * parseInt(limit);
-        const totalProducts =  await Products.countDocuments(filter);
-        const totalPages = Math.ceil(totalProducts / parseInt(limit))
+        
         const products = await Products.find(filter)
             .skip(skip)
             .limit(parseInt(limit))
             .populate('author', 'email username')
             .sort({createdAt: -1})
             ;
+        const totalProducts = products.length;
+        const totalPages = Math.ceil(totalProducts / parseInt(limit))
+
 
         return successResponse(res, 200, "Products fetched successfully", data={
             products,
