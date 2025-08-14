@@ -10,7 +10,7 @@ const bodyParser = require('body-parser')
 // middleware
 app.use(express.json());
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://final-libaba-client.vercel.app'],
+  origin: ['http://localhost:5173', 'https://shaj-client.vercel.app'],
   credentials: true
 }))
 app.use(cookieParser())
@@ -36,7 +36,7 @@ async function main() {
     await mongoose.connect(process.env.UB_URL);
  
     app.get('/', (req, res) => {
-      res.send('Lebaba E-commerce Server is running!')
+      res.send('Shaj E-commerce Server is running!')
     })
 }
 

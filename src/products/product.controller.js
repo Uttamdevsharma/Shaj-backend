@@ -77,13 +77,10 @@ const getSingleProduct = async (req, res) => {
 
         return successResponse(res, 200, "Single Product and reviews ",{product, reviews})
 
-
-
     } catch (error) {
         return errorResponse(res, 500, "Failed to get single product", error)
     }
 };
-
 
 const updateProductById  = async (req, res) => {
     const productId =  req.params.id;
@@ -127,3 +124,5 @@ module.exports = {
     updateProductById,
     deleteProductById
 }
+
+
